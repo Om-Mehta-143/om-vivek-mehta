@@ -6,9 +6,7 @@ import { EffectComposer, Bloom, DepthOfField, Vignette, Noise, ChromaticAberrati
 import * as THREE from 'three'
 
 // Components
-
 import ContactForm from '../components/ContactForm'
-
 
 // Role Typer Animation Component
 const RoleTyper = () => {
@@ -361,11 +359,50 @@ const HackerScene = () => {
   
   if (error) {
     return (
-      <div className="relative w-full h-screen bg-gradient-to-br from-gray-900 via-black to-green-900 flex items-center justify-center">
-        <div className="text-center border border-green-400 p-8 bg-black/50">
-          <h1 className="text-4xl font-bold text-green-400 mb-4 font-mono">SYSTEM ERROR</h1>
-          <p className="text-green-300 mb-8 font-mono">[!] {error}</p>
-          <div className="text-6xl text-red-500">⚠</div>
+      <div className="relative w-full h-screen bg-[#050b0a] flex items-center justify-center overflow-hidden">
+        {/* Cinematic Backdrop for Fallback */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#0a2f1f_0%,_#050b0a_100%)] opacity-40"></div>
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+        
+        {/* Subtle Matrix-style Grid */}
+        <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(#0f172a 1px, transparent 1px), linear-gradient(90deg, #0f172a 1px, transparent 1px)', backgroundSize: '40px 40px', opacity: 0.2 }}></div>
+
+        {/* Fallback Hero Content */}
+        <div className="relative z-20 text-center px-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="max-w-4xl mx-auto">
+             <div className="inline-block px-3 py-1 border border-green-500/30 bg-green-500/10 rounded-full text-[10px] font-mono text-green-400 mb-6 tracking-widest uppercase animate-pulse">
+               [ Safe Mode Enabled / WebGL Optimization Needed ]
+             </div>
+             
+             <div className="flex flex-col md:flex-row items-center justify-center gap-12">
+                <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-green-500/30 glow-border shadow-[0_0_50px_rgba(34,197,94,0.2)]">
+                  <img src="/my_official_pic.png" alt="Om Vivek Mehta" className="w-full h-full object-cover filter contrast-125 hover:filter-none transition-all duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+
+                <div className="text-center md:text-left">
+                  <h1 className="text-5xl md:text-7xl font-bold font-mono tracking-tighter text-white mb-4">
+                    &gt; OM VIVEK MEHTA
+                  </h1>
+                  <div className="text-xl md:text-2xl font-mono text-green-400 mb-6">
+                    <span className="text-white animate-pulse">[</span>
+                    <RoleTyper />
+                    <span className="text-white animate-pulse">]</span>
+                  </div>
+                  <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                     <span className="px-3 py-1 bg-gray-900 border border-gray-800 rounded text-xs font-mono text-gray-400">Ethical Hacker</span>
+                     <span className="px-3 py-1 bg-gray-900 border border-gray-800 rounded text-xs font-mono text-gray-400">Red Teamer</span>
+                     <span className="px-3 py-1 bg-gray-900 border border-gray-800 rounded text-xs font-mono text-gray-400">Security Consultant</span>
+                  </div>
+                </div>
+             </div>
+             
+             {/* Simple Scroll Indicator */}
+             <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity }} className="mt-20">
+                <div className="text-[10px] uppercase font-mono text-gray-500 tracking-[0.3em] mb-2">Scroll to decrypt</div>
+                <div className="w-[1px] h-12 bg-gradient-to-b from-green-500 to-transparent mx-auto"></div>
+             </motion.div>
+          </motion.div>
         </div>
       </div>
     )
@@ -788,7 +825,6 @@ function Home() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                // Completed Certificates
                 { cert: 'Deloitte Cybersecurity Job Simulation', full: 'Deloitte Cybersecurity Job Simulation Certificate', status: 'COMPLETED', color: 'green', link: '/certs/Deloitte Cyber Internship Certificate.pdf' },
                 { cert: 'Palo Alto Security Ops', full: 'Palo Alto Security Operations Certificate', status: 'COMPLETED', color: 'blue', link: '/certs/fycs _ 25_ pa-cert-security operations.pdf' },
                 { cert: 'Palo Alto Cloud Security', full: 'Palo Alto Cloud Security Fundamentals', status: 'COMPLETED', color: 'cyan', link: '/certs/fycs_25_pa-cert-clod security fundamentals.pdf' },
@@ -797,15 +833,8 @@ function Home() {
                 { cert: 'Mastercard Cybersecurity Job Simulation', full: 'Mastercard Cybersecurity Job Simulation Certificate', status: 'COMPLETED', color: 'red', link: '/certs/mastercard cyber job sim cert.pdf' },
                 { cert: 'Palo Alto Network', full: 'Palo Alto Network Security Certificate', status: 'COMPLETED', color: 'orange', link: '/certs/palo-alto-network-sec-cert.pdf' },
                 { cert: 'Prompt Engineering', full: 'Prompt Engineering Certificate', status: 'COMPLETED', color: 'yellow', link: '/certs/prompt enginering  cert.pdf' },
-                // In Progress & Planned
-                { cert: 'CompTIA Security+', full: 'Security+ Certification', status: 'IN_PROGRESS', color: 'gray' },
-                { cert: 'CCNA', full: 'Cisco Certified Network Associate', status: 'PLANNED', color: 'indigo' },
-                { cert: 'OSCP', full: 'Offensive Security Certified Professional', status: 'PLANNED', color: 'red' },
-                { cert: 'CEH', full: 'Certified Ethical Hacker', status: 'PLANNED', color: 'green' },
-                { cert: 'GPEN', full: 'GIAC Penetration Tester', status: 'PLANNED', color: 'purple' },
-                { cert: 'OSWE', full: 'Offensive Security Web Expert', status: 'PLANNED', color: 'yellow' }
-              ].map((cert, index) => 
-                cert.link ? (
+              ].map((cert, index) => (
+                  cert.link ? (
                   <motion.a
                     key={cert.cert}
                     href={cert.link}
@@ -862,7 +891,7 @@ function Home() {
                     </div>
                   </motion.div>
                 )
-              )}
+              ))}
             </div>
           </motion.div>
         </div>
@@ -950,8 +979,6 @@ function Home() {
                   </motion.div>
               ))}
           </div>
-
-          {/* Content Section removed */}
         </div>
       </section>
 
@@ -1078,7 +1105,6 @@ function Home() {
       </section>
 
       {/* Footer */}
-      {/* Bottom-right UI toggles removed as requested */}
     </div>
   )
 }
