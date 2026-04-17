@@ -482,14 +482,14 @@ const HackerScene = () => {
               <div className="absolute inset-0 bg-green-500/20 mix-blend-overlay z-10 pointer-events-none"></div>
               <img src="/my_official_pic.png" alt="Om Vivek Mehta" className="w-full h-full object-cover filter contrast-125 hover:filter-none transition-all duration-500" />
             </motion.div>
-            <div className="text-center md:text-left max-w-2xl">
+            <div className="text-center md:text-left max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
               className="mb-8"
             >
-              <h1 className="text-5xl md:text-7xl font-bold font-mono mb-4 text-white">
+              <h1 className="text-5xl md:text-7xl font-bold font-mono mb-4 text-white md:whitespace-nowrap">
                 &gt; OM VIVEK MEHTA
               </h1>
               
@@ -914,8 +914,8 @@ function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
               {[
-                  { title: 'ITGE — Identity & Trust Graph Engine', desc: 'Attack Path Dashboard focusing on visual reasoning.', tags: ['Neo4j', 'Python', 'FastAPI', 'D3.js'], link: '#', status: 'ACTIVE', color: 'red' },
-                  { title: 'Defense Validation Platform', desc: 'Secure evaluation and validation of defensive configurations.', tags: ['Python', 'FastAPI'], link: '#', status: 'COMPLETE', color: 'green' },
+                  { title: 'ITGE — Identity & Trust Graph Engine', desc: 'Attack Path Dashboard focusing on visual reasoning.', tags: ['Neo4j', 'Python', 'FastAPI', 'D3.js'], link: '#', status: 'COMPLETE', color: 'green' },
+                  { title: 'Defense Validation Platform', desc: 'Secure evaluation and validation of defensive configurations.', tags: ['Python', 'FastAPI'], link: '#', status: 'ACTIVE', color: 'red' },
                   { title: 'Car Evaluator', desc: 'Automated evaluation platform for embedded vehicle security.', tags: ['Hardware', 'Security'], link: '#', status: 'COMPLETE', color: 'blue' },
                   { title: 'Polyglot Code Analyser', desc: 'Static code analysis framework to detect vulnerabilities.', tags: ['Python', 'VS Code', 'Chrome Ext'], link: '#', status: 'DEVELOPING', color: 'yellow' },
                   { title: 'Personal AI Browser', desc: 'Privacy-focused custom browsing environment with local AI.', tags: ['AI', 'Browser Tech'], link: '#', status: 'DEVELOPING', color: 'purple' },
@@ -946,38 +946,72 @@ function Home() {
           </div>
 
           {/* Hackathons & CTFs */}
-          <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="mb-16 text-center"
-          >
-              <h2 className="text-4xl font-bold font-mono mb-4 text-white">
-                  <span className="text-orange-500">[</span>HACKATHONS_&_CTFS<span className="text-orange-500">]</span>
-              </h2>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
-              {[
-                  { name: '[HACKATHON_1]', position: 'Winner / Finalist', date: 'Oct 2025', org: 'Organizer Name' },
-                  { name: '[CTF_1]', position: 'Top 10', date: 'Aug 2025', org: 'Organizer Name' },
-                  { name: '[CTF_2]', position: 'Participant', date: 'Jan 2024', org: 'Organizer Name' }
-              ].map((event, i) => (
-                  <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: i * 0.1 }}
-                      className="border-l-2 border-orange-500 bg-gray-900/50 p-4 font-mono group hover:bg-gray-800/80 transition-colors"
-                  >
-                      <div className="text-orange-400 font-bold mb-1">{event.name}</div>
-                      <div className="text-white text-sm mb-2">{event.position}</div>
-                      <div className="flex justify-between text-xs text-gray-400">
-                          <span>{event.org}</span>
-                          <span>{event.date}</span>
-                      </div>
-                  </motion.div>
-              ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24">
+              {/* CTFs Section */}
+              <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+              >
+                  <h2 className="text-3xl font-bold font-mono mb-8 text-white border-b border-orange-500/30 pb-4">
+                      <span className="text-orange-500">[</span>CTF'S<span className="text-orange-500">]</span>
+                  </h2>
+                  <div className="space-y-4">
+                      {[
+                          "WEC CTF 2026",
+                          "X'ploitathon 2026 (CTF)",
+                          "KJSSE CTF 3.0 (Capture the Flag)",
+                          "RootAccess CTF 2026",
+                          "Hackdata CTF '26",
+                          "Digital CyberHunt CTF",
+                          "Enigma CTF",
+                          "SYNAPSE 2025 Capture The Flag (CTF) Challenge",
+                          "Capture The Flag | CyberTEA 3.0",
+                          "Hacker's Gambit :- An OWASP National Level CTF"
+                      ].map((ctf, i) => (
+                          <motion.div
+                              key={i}
+                              initial={{ opacity: 0, x: -20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.4, delay: i * 0.05 }}
+                              className="border-l-2 border-orange-500 bg-gray-900/30 p-3 font-mono text-sm text-gray-300 hover:bg-orange-500/10 transition-colors"
+                          >
+                              {ctf}
+                          </motion.div>
+                      ))}
+                  </div>
+              </motion.div>
+
+              {/* Hackathons Section */}
+              <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+              >
+                  <h2 className="text-3xl font-bold font-mono mb-8 text-white border-b border-blue-500/30 pb-4">
+                      <span className="text-blue-500">[</span>HACKATHONS<span className="text-blue-500">]</span>
+                  </h2>
+                  <div className="space-y-4">
+                      {[
+                          "HackFusion 2026 : Hackathon",
+                          "Rubix'26",
+                          "Odoo x SNS Coimbatore Hiring Hackathon '26",
+                          "EY Techathon 6.0",
+                          "IDEATHON: Spark Before the Code",
+                          "Vishleshan - A Case Study Competition"
+                      ].map((hack, i) => (
+                          <motion.div
+                              key={i}
+                              initial={{ opacity: 0, x: 20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.4, delay: i * 0.05 }}
+                              className="border-l-2 border-blue-500 bg-gray-900/30 p-3 font-mono text-sm text-gray-300 hover:bg-blue-500/10 transition-colors"
+                          >
+                              {hack}
+                          </motion.div>
+                      ))}
+                  </div>
+              </motion.div>
           </div>
         </div>
       </section>

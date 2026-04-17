@@ -40,8 +40,8 @@ const Activity = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                  { title: 'ITGE — Identity & Trust Graph Engine', desc: 'Attack Path Dashboard focusing on visual reasoning.', tags: ['Neo4j', 'Python', 'FastAPI', 'D3.js'], link: '#', status: 'ACTIVE', color: 'red' },
-                  { title: 'Defense Validation Platform', desc: 'Secure evaluation and validation of defensive configurations.', tags: ['Python', 'FastAPI'], link: '#', status: 'COMPLETE', color: 'green' },
+                  { title: 'ITGE — Identity & Trust Graph Engine', desc: 'Attack Path Dashboard focusing on visual reasoning.', tags: ['Neo4j', 'Python', 'FastAPI', 'D3.js'], link: '#', status: 'COMPLETE', color: 'green' },
+                  { title: 'Defense Validation Platform', desc: 'Secure evaluation and validation of defensive configurations.', tags: ['Python', 'FastAPI'], link: '#', status: 'ACTIVE', color: 'red' },
                   { title: 'Car Evaluator', desc: 'Automated evaluation platform for embedded vehicle security.', tags: ['Hardware', 'Security'], link: '#', status: 'COMPLETE', color: 'blue' },
                   { title: 'Polyglot Code Analyser', desc: 'Static code analysis framework to detect vulnerabilities.', tags: ['Python', 'VS Code', 'Chrome Ext'], link: '#', status: 'DEVELOPING', color: 'yellow' },
                   { title: 'Personal AI Browser', desc: 'Privacy-focused custom browsing environment with local AI.', tags: ['AI', 'Browser Tech'], link: '#', status: 'DEVELOPING', color: 'purple' },
